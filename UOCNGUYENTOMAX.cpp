@@ -17,27 +17,26 @@ int main()
 {
     int n;
     int c=0;
-    int d=0;
 
     cout <<"N = ";
     cin >> n;
 	
-    for(int i = 2; i<n; i++)
+    for(int i = 2; i<=n; i++)
     {
         if(n%i==0)
         {
-        	d=1;
+ 
             if(abc(i)==1)
             c=i;
         }
 
     }
-    if(d==0)
-    cout<<"Thua so nguyen to lon nhat cua "<<n<<" la: "<<n;
+
 
     if(c!=0)
 	cout<<"Thua so nguyen to lon nhat cua "<<n<<" la: "<<c;
 
 }
+
 
 
