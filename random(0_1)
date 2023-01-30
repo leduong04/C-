@@ -1,0 +1,25 @@
+//print out N random numbers between 0 and 1
+#include <stdio.h>
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+void random(int n)
+{
+    srand(time(0));
+    for(int i=1; i<=n; i++)
+    {
+        double b = (double) rand() / RAND_MAX;
+        cout<<"Ran "<<i<<": ";
+        cout<<b<<"\n";
+    }
+}
+int main() {
+ 
+    int n;
+    cout<<"Nhap N: ";
+    cin>>n;
+    random(n);
+
+    return 0;
+}
