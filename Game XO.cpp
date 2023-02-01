@@ -39,7 +39,6 @@ int main()
     {
     	board[n][m]=player;
 	}
-//    gameboard();
    for (int i = 0; i < ROW; i++) {
       if (board[i][0] == player && board[i][1] == player && board[i][2] == player) {
         cout<<player<<" wins";
@@ -47,7 +46,6 @@ int main()
       }
    }
    
-   // Check columns
    for (int i = 0; i < COLUMN; i++) {
       if (board[0][i] == player && board[1][i] == player && board[2][i] == player) {
          cout<<player<<" wins";
@@ -55,7 +53,6 @@ int main()
       }
    }
    
-   // Check diagonals
    if (board[0][0] == player && board[1][1] == player && board[2][2] == player) {
        cout<<player<<" wins";
        ktra=1;
@@ -65,7 +62,7 @@ int main()
        ktra=1;
    }
    
-//   return false;
+
 
 if(player=='x')
 	player='o';
