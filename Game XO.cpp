@@ -73,7 +73,11 @@ if(player=='x')
 	player='x';
 	
 	if(ktra==1)
+	{
+	cout<<"\n";
+	 gameboard();
 	break;
+	}
 	
 	
 		cout<<" \nNhap 1 de tiep tuc, 0 de huy van: ";
