@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+void abc(double a, double b, double c)
+{
+	if(a<b) swap(a, b);
+	if(a<c) swap(a, c);
+	if(b<c) swap(b, c);
+	cout<<a<<" "<<b<<" "<<c;
+
+}
+int main()
+{
+	double a, b, c;
+	cout<<"a= ";
+	cin>>a;
+	cout<<"b= ";
+	cin>>b;
+	cout<<"c= ";
+	cin>>c;
+	abc(a, b, c);
+//	cout<<a<<" "<<b<<" "<<c;
+}
