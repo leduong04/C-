@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+void replace(float a[], int n, float x, float y);
+int main()
+{
+    float a[1000];
+    int n;
+    float x, y;
+    cout<<"N = ";
+    cin>>n;
+    for(int i=1; i<=n; i++)
+    {
+        cout<<"A["<<i<<"] = ";
+        cin>>a[i];
+    }
+    cout<<"Day A:";
+     for(int i=1; i<=n; i++)
+     {
+         cout<<" | "<<a[i];
+     }
+      cout<<" | ";
+    cout<<"\nX = ";
+    cin>>x;
+    cout<<"Y = ";
+    cin>>y;
+    replace(a, n, x, y);
+}
+void replace(float a[], int n, float x, float y)
+{
+	for(int i=1; i<=n; i++)
+	{
+		if(a[i]==x)
+		{
+			a[i]=y;
+		}
+	}
+	cout<<"Day A.2:";
+	for(int i=1; i<=n; i++)
+	{
+		 cout<<" | "<<a[i];
+	}
+	cout<<" | ";
+}
