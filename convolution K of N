@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+void abc(int n, int k);
+int main()
+{
+	int n, k;
+	do{
+	
+	cout<<"n = ";
+	cin>>n; 
+	cout<<"k = ";
+	cin>>k;
+	}
+	while(n<k);
+	abc(n, k);
+	
+	
+}
+void abc(int n, int k)
+{
+	double m, h, t, l;
+	t=n-k;
+	l=t;
+	m=n;
+	do{
+		n=n-1;
+		m=m*n;
+//		cout<<m<<"\n"<<n<<endl;
+	}
+	while(n!=1);
+//	cout<<"\n"<<m;
+	h=k;
+	do{
+		k=k-1;
+		h=h*k;
+	}
+	while(k!=1);
+	
+	do{
+		t=t-1;
+		l=l*t;
+//		cout<<l<<endl;
+	}
+	while(t!=1);
+	printf("%g/%g*%g = ", m,h,l);
+	double g=h*l;
+	double C=m/g;
+	cout<<C;
+}
