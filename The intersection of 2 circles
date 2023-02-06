@@ -1,0 +1,121 @@
+////Cho hai điểm P và Q trên đường thắng là tọa độ tâm của hai hình tròn có bán kính là R và C (hình minh họa ở dưới). Hãy tính diện tích phần giao của hai hình tròn với độ chính xác 6 số thập phân.
+
+// do like this exercise: https://moon.vn/hoi-dap/mot-khu-vuon-co-dang-hop-cua-hai-hinh-tron-giao-nhau-ban-kinh-cua-hai-duong-tron-la--795813
+#include<bits/stdc++.h>
+#include<math.h>
+using namespace std;
+
+void duong(double xP, double yP, double xQ, double yQ, double rP, double rQ);
+double cos(double a,double b, double c );
+
+int main()
+{
+	double xP, yP, xQ, yQ;
+	double rP,rQ;
+	cout<<"xP = ";
+	cin>>xP;
+	cout<<"yP = ";
+	cin>>yP;
+	cout<<"xQ = ";
+	cin>>xQ;
+	cout<<"yQ = ";
+	cin>>yQ;
+	cout<<"Ban kinh cua duong tron P:rP = ";
+	cin>>rP;
+	cout<<"Ban kinh cua duong tron Q:rQ = ";
+	cin>>rQ;
+	duong(xP,yP,xQ,yQ,rP,rQ);
+	
+
+}
+
+void duong(double xP, double yP, double xQ, double yQ, double rP, double rQ)
+{
+	double PQ;
+	double q, p;
+	double S;
+////distance of 2 centers	
+	PQ=sqrt(pow((xQ-xP),2)+pow((yQ-yP), 2));
+//	cout<<"PQ = ";
+//	cin>>PQ;
+	q= cos( rQ, rP,  PQ);
+	
+//	std::cout<<q<<std::endl;
+	p= cos(rP,rQ,PQ);
+//	cout<<p;
+	double m = sin(q);
+	S=p*pow(rQ, 2)+q*pow(rP, 2)-PQ*rP*m;
+//	cout<<S<<endl;
+	printf("Dien tich phan giao nhau cua 2 duong tron la: %.6f", S);
+}
+double cos(double rQ ,double rP, double PQ )
+{
+	double x, y, cos;
+	x=pow(rP, 2)+pow(PQ,2)-pow(rQ,2);
+	y=2*rP*PQ;
+//	cout<<x<<"\n"<<y<<endl;
+	cos=x/y;
+//	cout<<cos<<endl;
+	double z = acos(cos);
+//	cout<<z<<endl;
+	return z;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//How to chatGPT solved 
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+const double PI = 3.14159265358979323846;
+
+double calc_area_of_circle_intersection(double r1, double r2, double d) {
+  // Tính toán di?n tích giao nhau c?a hai hình tròn
+  double part1 = r1 * r1 * acos((d * d + r1 * r1 - r2 * r2) / (2 * d * r1));
+  double part2 = r2 * r2 * acos((d * d + r2 * r2 - r1 * r1) / (2 * d * r2));
+  double part3 = 0.5 * sqrt((-d + r1 + r2) * (d + r1 - r2) * (d - r1 + r2) * (d + r1 + r2));
+  return part1 + part2 - part3;
+}
+
+int main() {
+  double x1, y1, r1, x2, y2, r2, d;
+
+  // Nh?p t?a d? c?a tâm hình tròn P và Q
+  cout << "Nhap toa do tam hinh tron P: ";
+  cin >> x1 >> y1;
+  cout << "Nhap ban kinh hinh tron P: ";
+  cin >> r1;
+
+  cout << "Nhap toa do tam hinh tron Q: ";
+  cin >> x2 >> y2;
+  cout << "Nhap ban kinh hinh tron Q: ";
+  cin >> r2;
+
+  // Tính toán kho?ng cách gi?a hai tâm hình tròn
+  d = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+
+  // N?u hai hình tròn không giao nhau
+  if (d > r1 + r2) {
+    cout << "Hai hinh tron khong giao nhau." << endl;
+    return 0;
+  }
+
+  // Làm tròn di?n tích ph?n giao hai hình tròn d?n 6 ch? s? th?p phân
+  cout << fixed << setprecision(6) << "Dien tich phan giao hai hinh tron la: " << calc_area_of_circle_intersection(r1, r2, d) << endl;
+  return 0;
+}
