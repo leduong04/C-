@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int solonhon(double a[], double d, int n)
+ {
+ 	int j;
+
+  for( j=1; j<=n; j++)
+    {
+    	if(a[j]>d)
+    	{
+
+		return j;
+		break;
+   		}
+    }
+
+ }
+
+int main()
+{
+    double d;
+    double a[1000];
+    int n;
+    int i;
+    cout<<"N = ";
+    cin>>n;
+    cout<<"D = ";
+    cin>>d;
+    for(i=1; i<=n; i++)
+    {
+        cout<<"a["<<i<<"]:";
+        cin>>a[i];
+    }
+    cout<<"A: ";
+    for(i=1; i<=n; i++)
+    {
+        cout<<a[i]<<" ";
+    }
+	cout<<"\n";	
+	cout<<"vi tri cua so dau tien lon hon d la: "<<solonhon(a, d, n);
+
+    
+}
