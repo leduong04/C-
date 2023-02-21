@@ -4,16 +4,25 @@ using namespace std;
 int solonhon(double a[], double d, int n)
  {
  	int j;
+ 	int k=0;
 
   for( j=1; j<=n; j++)
     {
     	if(a[j]>d)
     	{
 
-		return j;
+		k=j;
 		break;
    		}
     }
+    if(k==0)
+    {
+    	return -1;
+	}
+	else 
+	return k;
+    
+    
 
  }
 
